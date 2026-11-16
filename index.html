@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f7fb">
+  <title>Math Task Studio — учебный тренажёр</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" id="homeLink"><div class="brand-mark">∑</div><span>Math Task Studio<span class="brand-sub">учебный тренажёр</span></span></a>
+    <nav><button class="nav-link active" data-view="student">Ученику</button><button class="nav-link" data-view="teacher">Учителю</button></nav>
+  </header>
+  <main id="app" class="container" aria-live="polite"></main>
+  <footer>Math Task Studio · Supabase edition</footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
