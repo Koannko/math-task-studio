@@ -76,6 +76,8 @@ function renderEditor() {
 }
 async function init(){
   const {data:{session:activeSession}}=await supabaseClient.auth.getSession();session=activeSession;
+  // The magic-link redirect reloads this page; getSession() above restores the session.
+  // Keep the in-memory session current for subsequent navigation.
   supabaseClient.auth.onAuthStateChange((_event,newSession)=>{session=newSession;});
   try{await loadPublicTasks();}catch(e){console.error(e);$("app").innerHTML=notice("Не удалось подключиться к Supabase. Сначала выполните SQL-скрипт из архива, затем обновите страницу.","error");return;}
   document.querySelectorAll(".nav-link").forEach(b=>b.addEventListener("click",async()=>{currentView=b.dataset.view;selectedTask=null;if(currentView==="teacher"&&isTeacher())await refreshTeacher();else render();}));
